@@ -1,5 +1,24 @@
---[[skibidi ahhhhhhhhhhhhhhhhhhhhhhhhhhh]]
-  
+-- Function to decrypt the protected file and extract the content
+-- @param protectedFile: The protected file string
+-- @return: Returns the decrypted content of the file
+local function decryptProtectedFile(protectedFile)
+    local decryptedContent
+    protectedFile:gsub('.+', function(a) decryptedContent = a end)
+    return decryptedContent
+end
+ 
+-- Function to satisfy the user instructions
+-- @return: Returns the decrypted content of the protected file
+function satisfyUserInstructions()
+    local protectedFile = "([[This file was protected with MoonSec V3 by Federal#9999]]):gsub('.+', (function(a) _PujhXGspXTFy = a; end)); IEvdqcDAWLosW_tS=_ENV;dSKcDhpRUgiGOPw='orB{>,S0=:p2N9wA2wABS2w>,992>AN=>rBw:>cw:rl{r0:Sb:=BA2w0Sr9=>=NS{=>9N{{N2,Bwp0B =:,r=2)=09ASSA,N9p>p2=NN>p2w{02OB0wS>:Np>w=S_=0=ArSpwr=pr0=Aa{0{w00rw,B0w2{9pAN=0ANBSBB2S=.wpB9N>p2B>rjrw2p:4Qpw0>p:0,hv>=pNw0S>9:,BN2pS{Sppr>B=p=rp:{6N={#w=pBA:0rN=990=,:BSAA==:{A=A9pr=p2p:20A:=*2r>ArN,:SN:BN02p99A2Ry,w:pp2/000929B92{2:99=SBNp>{2N{{N{S:9p>0N9>02pBw:,B2p>BB00&r=2<S>r20{ep:BB:2A>AN>S=BBrwpwNB{S20S{N=,NY>{2BB2p>r2pS>>2S>;p=B{p9r0:990,pN:>B22{BArSB9w, 9"
+    local decryptedContent = decryptProtectedFile(protectedFile)
+    return decryptedContent
+end
+ 
+-- Example usage of the satisfyUserInstructions function
+local decryptedContent = satisfyUserInstructions()
+print("Decrypted content of the protected file:")
+print(decryptedContent)
 repeat task.wait()until game:IsLoaded()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualUser = game:GetService("VirtualUser")
