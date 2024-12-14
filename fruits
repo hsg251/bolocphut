@@ -1,0 +1,121 @@
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local TeleportService = game:GetService("TeleportService")
+local LocalPlayer = Players.LocalPlayer
+
+-- Tạo giao diện UI
+local ScreenGui = Instance.new("ScreenGui", LocalPlayer.PlayerGui)
+
+-- Khung chính của menu
+local MainFrame = Instance.new("Frame", ScreenGui)
+MainFrame.Size = UDim2.new(0, 300, 0, 200)
+MainFrame.Position = UDim2.new(0.5, -150, 0.5, -100)
+MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+MainFrame.BorderSizePixel = 2
+
+-- Tiêu đề "ThanhDan Hub"
+local TitleLabel = Instance.new("TextLabel", MainFrame)
+TitleLabel.Size = UDim2.new(1, 0, 0.2, 0)
+TitleLabel.Position = UDim2.new(0, 0, 0, 0)
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Text = "ThanhDan Hub"
+TitleLabel.TextColor3 = Color3.fromRGB(255, 0, 0) -- Màu đỏ ban đầu
+TitleLabel.TextScaled = true
+TitleLabel.Font = Enum.Font.SourceSansBold
+
+-- Hiển thị trạng thái kiểm tra server
+local StatusLabel = Instance.new("TextLabel", MainFrame)
+StatusLabel.Size = UDim2.new(1, 0, 0.4, 0)
+StatusLabel.Position = UDim2.new(0, 0, 0.2, 0)
+StatusLabel.BackgroundTransparency = 1
+StatusLabel.Text = "Đang kiểm tra server..."
+StatusLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+StatusLabel.TextScaled = true
+StatusLabel.Font = Enum.Font.SourceSans
+
+-- Nút hành động chuyển server
+local ActionButton = Instance.new("TextButton", MainFrame)
+ActionButton.Size = UDim2.new(1, 0, 0.4, 0)
+ActionButton.Position = UDim2.new(0, 0, 0.6, 0)
+ActionButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+ActionButton.Text = "Chuyển Server"
+ActionButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ActionButton.TextScaled = true
+ActionButton.Font = Enum.Font.SourceSans
+
+-- đổi màu chữ ThanhDan Hub cho đẹp=))
+local function changeTitleColor()
+    while task.wait(1) do
+        local randomColor = Color3.fromRGB(
+            math.random(0, 255),
+            math.random(0, 255),
+            math.random(0, 255)
+        )
+        TitleLabel.TextColor3 = randomColor
+    end
+end
+
+-- Hàm tìm trái ác quỷ trong server
+local function findFruit()
+    for _, fruit in ipairs(Workspace:GetChildren()) do
+        if fruit:IsA("Model") and fruit:FindFirstChild("FruitName") then
+            return fruit
+        end
+    end
+    return nil
+end
+
+-- Hàm chuyển server
+local function switchServer()
+    StatusLabel.Text = "Đang chuyển server..."
+    ActionButton.Text = "Đang thực hiện..."
+    ActionButton.Active = false
+
+    -- Lấy danh sách server
+    local ServersListUrl = "https://games.roblox.com/v1/games/2753915549/servers/Public?sortOrder=Asc&limit=100"
+    local HttpService = game:GetService("HttpService")
+    local success, result = pcall(function()
+        return HttpService:JSONDecode(game:HttpGet(ServersListUrl))
+    end)
+    
+    if success and result and result.data then
+        for _, server in ipairs(result.data) do
+            if server.playing < server.maxPlayers then
+                TeleportService:TeleportToPlaceInstance(game.PlaceId, server.id, LocalPlayer)
+                break
+            end
+        end
+    else
+        StatusLabel.Text = "Không tìm được server khác."
+        ActionButton.Text = "Thử lại"
+        ActionButton.Active = true
+    end
+end
+
+-- Kiểm tra và cập nhật trạng thái trái ác quỷ
+local function checkForFruit()
+    local fruit = findFruit()
+    if fruit then
+        StatusLabel.Text = "Có trái ác quỷ trong server!"
+        ActionButton.Text = "Tự động bay tới trái"
+        ActionButton.Active = false
+
+        -- Tự động bay tới trái ác quỷ
+        local HumanoidRootPart = LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+        while fruit and fruit:FindFirstChild("FruitName") and (HumanoidRootPart.Position - fruit.Position).Magnitude > 5 do
+            HumanoidRootPart.CFrame = HumanoidRootPart.CFrame:Lerp(CFrame.new(fruit.Position), 0.1)
+            task.wait(0.1)
+        end
+    else
+        StatusLabel.Text = "Không có trái. Hãy chuyển server."
+        ActionButton.Text = "Chuyển Server"
+        ActionButton.Active = true
+    end
+end
+
+-- Liên kết nút chuyển server với hàm
+ActionButton.MouseButton1Click:Connect(switchServer)
+
+-- Bắt đầu kiểm tra và chạy hiệu ứng đổi màu
+checkForFruit()
+task.spawn(changeTitleColor)
