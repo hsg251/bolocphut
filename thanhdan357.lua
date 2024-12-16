@@ -7,7 +7,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
     Title = "ThanhDan Hub",
-    SubTitle = "Bản update lần thứ 2",
+    SubTitle = "Bản update lần thứ 2!",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = false,
@@ -15,15 +15,15 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
-    Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
-    Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "baby" }),
-    Teleport = Window:AddTab({ Title = "Island", Icon = "palmtree" }),
-    Fruit = Window:AddTab({ Title = "Fruit", Icon = "cherry" }),
-    Raid = Window:AddTab({ Title = "Raid", Icon = "swords" }),
-    Race = Window:AddTab({ Title = "Race V4", Icon = "chevrons-right" }),
-    Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
+    Main = Window:AddTab({ Title = "Chính", Icon = "home" }),
+    Setting = Window:AddTab({ Title = "Cài đặt", Icon = "settings" }),
+    Stats = Window:AddTab({ Title = "chỉ số", Icon = "plus-circle" }),
+    Player = Window:AddTab({ Title = "người chơi", Icon = "baby" }),
+    Teleport = Window:AddTab({ Title = "đảo", Icon = "palmtree" }),
+    Fruit = Window:AddTab({ Title = "trái", Icon = "cherry" }),
+    Raid = Window:AddTab({ Title = "tập kích", Icon = "swords" }),
+    Race = Window:AddTab({ Title = "tộc V4", Icon = "chevrons-right" }),
+    Shop = Window:AddTab({ Title = "cửu hàng", Icon = "shopping-cart" }),
 	Misc = Window:AddTab({ Title = "Misc", Icon = "list-plus" }),
     Hop = Window:AddTab({ Title = "Hop", Icon = "wifi" }),
 }
