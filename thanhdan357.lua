@@ -88,7 +88,7 @@ end)
 
 HubButton.MouseButton1Click:Connect(function()
     ScreenGui:Destroy() -- Xóa giao diện
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/hsg251/bolocphut/refs/heads/main/thanhdan357.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hsg251/bolocphut/refs/heads/main/mau"))()
 end)
 
 FruitButton.MouseButton1Click:Connect(function()
