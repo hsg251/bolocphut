@@ -1,0 +1,78 @@
+-- Script tạo Key System trong Roblox
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+local GuiService = game:GetService("GuiService")
+local HttpService = game:GetService("HttpService")
+local correctKey = "son25102011son" -- Key chính xác
+local loadedScript = "https://raw.githubusercontent.com/hsg251/bolocphut/refs/heads/main/mau"
+
+-- Tạo UI
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "KeySystem"
+ScreenGui.Parent = Player.PlayerGui
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 300, 0, 200)
+Frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.Parent = ScreenGui
+
+local Title = Instance.new("TextLabel")
+Title.Text = "Enter Key"
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.BackgroundTransparency = 1
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 20
+Title.Parent = Frame
+
+local TextBox = Instance.new("TextBox")
+TextBox.PlaceholderText = "Enter your key here"
+TextBox.Size = UDim2.new(0.8, 0, 0, 40)
+TextBox.Position = UDim2.new(0.1, 0, 0.3, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.Parent = Frame
+
+local EnterButton = Instance.new("TextButton")
+EnterButton.Text = "EnterKey"
+EnterButton.Size = UDim2.new(0.8, 0, 0, 40)
+EnterButton.Position = UDim2.new(0.1, 0, 0.6, 0)
+EnterButton.BackgroundColor3 = Color3.fromRGB(70, 130, 180)
+EnterButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+EnterButton.Parent = Frame
+
+local GetKeyButton = Instance.new("TextButton")
+GetKeyButton.Text = "GetKey"
+GetKeyButton.Size = UDim2.new(0.8, 0, 0, 40)
+GetKeyButton.Position = UDim2.new(0.1, 0, 0.8, 0)
+GetKeyButton.BackgroundColor3 = Color3.fromRGB(34, 139, 34)
+GetKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetKeyButton.Parent = Frame
+
+local Message = Instance.new("TextLabel")
+Message.Text = ""
+Message.Size = UDim2.new(1, 0, 0, 20)
+Message.Position = UDim2.new(0, 0, 0.1, 0)
+Message.BackgroundTransparency = 1
+Message.TextColor3 = Color3.fromRGB(255, 0, 0)
+Message.TextSize = 16
+Message.Parent = Frame
+
+-- Chức năng nút EnterKey
+EnterButton.MouseButton1Click:Connect(function()
+    if TextBox.Text == correctKey then
+        Message.Text = "Key đúng, đang thực thi script..."
+        wait(1)
+        ScreenGui:Destroy() -- Xóa UI sau khi nhập đúng
+        loadstring(game:HttpGet(loadedScript))() -- Tải script từ đường dẫn
+    else
+        Message.Text = "Sai key!"
+    end
+end)
+
+-- Chức năng nút GetKey
+GetKeyButton.MouseButton1Click:Connect(function()
+    setclipboard("https://sub4unlock.io/fAi98") -- Copy link vào clipboard
+    Message.Text = "Link đã được copy vào clipboard!"
+end)
