@@ -1,4 +1,3 @@
---[[welcome to thanhdan hub]]
 --[[my discord https://discord.gg/VcyY725C]]
 
 highChestOnly = true
@@ -101,7 +100,7 @@ function AllowRunServiceBind.OnInvoke(args)
     local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
         Title = "thanhdan Hub",
-        Text = "https://discord.gg/VcyY725C",
+        Text = "Hello!",
         Icon = "rbxthumb://type=Asset&id=113954644931303&w=150&h=150",
         Duration = math.huge,
         Callback = AllowRunServiceBind,
@@ -126,7 +125,7 @@ end)
 local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
     Title = "thanhdan Hub",
-    Text = "https://discord.gg/VcyY725C",
+    Text = "Hello!",
     Icon = "rbxthumb://type=Asset&id=113954644931303&w=150&h=150",
     Duration = math.huge,
     Callback = AllowRunServiceBind,
