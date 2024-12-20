@@ -30,4 +30,4 @@ wait(2)
 TextLabel:Destroy()
 
 -- Thực thi script từ URL
-loadstring(game:HttpGet("https://raw.githubusercontent.com/FlashScripts0/BloxFruits/main/BloxFruits"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruit/refs/heads/main/Source.lua"))()
