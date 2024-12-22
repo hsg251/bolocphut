@@ -30,4 +30,18 @@ wait(2)
 TextLabel:Destroy()
 
 -- Thực thi script từ URL
-getgenv().Team = "Marines" getgenv().AutoLoad = false getgenv().SlowLoadUi = false getgenv().ForceUseSilentAimDashModifier = false getgenv().ForceUseWalkSpeedModifier = false loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+repeat task.wait() until game:IsLoaded() -- Chờ đến khi game được tải xong
+local TablePlace = {7449423635, 2753915549, 4442272183} -- Danh sách các PlaceId hợp lệ
+game:GetService("StarterGui"):SetCore("SendNotification", { -- Gửi thông báo cho người chơi
+    Title = "Read", -- Tiêu đề thông báo
+    Text = "I'm continuing to update more, Wait me =)", -- Nội dung thông báo
+    Icon = "rbxassetid://9709149431", -- Biểu tượng thông báo (tuỳ chọn)
+    Duration = 10 -- Thời gian hiển thị thông báo (10 giây)
+})
+
+if table.find(TablePlace, game.PlaceId) then -- Kiểm tra xem game.PlaceId có nằm trong danh sách hợp lệ không
+    getgenv().Game = "BF" -- Thiết lập biến Game là "BF"
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/UserDevEthical/Loadstring/main/BF-New.lua"))() -- Tải và chạy mã từ URL
+else
+    game.Players.LocalPlayer:Kick("not Support") -- Nếu không hỗ trợ, đuổi người chơi
+end
