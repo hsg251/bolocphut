@@ -13,7 +13,7 @@ TextLabel.BackgroundTransparency = 1
 TextLabel.Position = UDim2.new(0.5, -150, 0.05, 0)  -- Đưa thông báo lên gần trên cùng
 TextLabel.Size = UDim2.new(0, 300, 0, 50)
 TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "Script đang tải, vui lòng chờ..."
+TextLabel.Text = "Khi bạn nhập script này bạn sẽ trở nên đẹp trai đấy"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 30
 TextLabel.TextStrokeTransparency = 0.5
@@ -23,18 +23,21 @@ TextLabel.TextScaled = true
 wait(5)
 
 -- Thay đổi thông báo thành "Đã tải xong"
-TextLabel.Text = "ThanhDan Hub x Linux Team"
+TextLabel.Text = "lúc trước chỉ lấy trên mạng để mn xài đở thôi giờ update xog rồi"
+
+--tiếp
+TextLabel.Text = "THANKS FOR USING!!=))"
 
 -- Hiển thị thông báo "Đã tải xong" trong 2 giây rồi xóa
 wait(2)
 TextLabel:Destroy()
 
--- Thực thi script từ URL
+-- Bắt đầu script
 repeat task.wait() until game:IsLoaded() -- Chờ đến khi game được tải xong
 local TablePlace = {7449423635, 2753915549, 4442272183} -- Danh sách các PlaceId hợp lệ
 game:GetService("StarterGui"):SetCore("SendNotification", { -- Gửi thông báo cho người chơi
-    Title = "Read", -- Tiêu đề thông báo
-    Text = "I'm continuing to update more, Wait me =)", -- Nội dung thông báo
+    Title = "thông báo", -- Tiêu đề thông báo
+    Text = "Bây giờ tên Hub đã được đổi=)", -- Nội dung thông báo
     Icon = "rbxassetid://9709149431", -- Biểu tượng thông báo (tuỳ chọn)
     Duration = 10 -- Thời gian hiển thị thông báo (10 giây)
 })
@@ -43,5 +46,5 @@ if table.find(TablePlace, game.PlaceId) then -- Kiểm tra xem game.PlaceId có 
     getgenv().Game = "BF" -- Thiết lập biến Game là "BF"
     loadstring(game:HttpGet("https://raw.githubusercontent.com/UserDevEthical/Loadstring/main/BF-New.lua"))() -- Tải và chạy mã từ URL
 else
-    game.Players.LocalPlayer:Kick("not Support") -- Nếu không hỗ trợ, đuổi người chơi
+    game.Players.LocalPlayer:Kick("Xin lỗi, nhưng thiết bị của bạn không hỗ trợ!") -- Nếu không hỗ trợ, đuổi người chơi
 end
