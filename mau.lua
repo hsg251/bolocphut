@@ -1,10 +1,9 @@
-﻿--[[CẤM SAO CHÉP DƯỚI MỌI HÌNH THỨC]]
-  
-----------------------------------------------------------------------------------------------------------------------------------------------
+--Update mệt quá=(
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
     Title = "ThanhDan Hub",
     SubTitle = "Bản update lần thứ 2",
@@ -684,13 +683,20 @@ QuestLv = 2
 NameMon = "Island Boy"
 CFrameQ = CFrame.new(-16549.890625, 55.68635559082031, -179.91360473632812)
 CFrameMon = CFrame.new(-16912.130859375, 11.787443161010742, -133.0850830078125)
-elseif Lv >= 2525 or SelectMonster == "Isle Champion" or SelectArea == 'Tiki Outpost' then
+elseif Lv >= 2525 or Lv <= 2574 or SelectMonster == "Isle Champion" or SelectArea == 'Tiki Outpost' then
 Ms = "Isle Champion"
 NameQuest = "TikiQuest2"
 QuestLv = 2
 NameMon = "Isle Champion"
 CFrameQ = CFrame.new(-16542.447265625, 55.68632888793945, 1044.41650390625)
 CFrameMon = CFrame.new(-16848.94140625, 21.68633460998535, 1041.4490966796875)
+elseif Lv >= 2575 and Lv <= 2600 or SelectMonster == "Elite Boss" or SelectArea == "Final Arena" then
+Ms = "Elite Boss"
+NameQuest = "FinalQuest1"
+QuestLv = 1
+NameMon = "Elite Boss"
+CFrameQ = CFrame.new(-12345.678, 200.789, 5432.101)
+CFrameMon = CFrame.new(-12450.456, 250.654, 5500.987)
 end
 end
 end
@@ -702,10 +708,20 @@ tableMon = {
 } elseif Second_Sea then
 tableMon = {
   "Raider","Mercenary","Swan Pirate","Factory Staff","Marine Lieutenant","Marine Captain","Zombie","Vampire","Snow Trooper","Winter Warrior","Lab Subordinate","Horned Warrior","Magma Ninja","Lava Pirate","Ship Deckhand","Ship Engineer","Ship Steward","Ship Officer","Arctic Warrior","Snow Lurker","Sea Soldier","Water Fighter"
-} elseif Third_Sea then
-tableMon = {
-  "Pirate Millionaire","Dragon Crew Warrior","Dragon Crew Archer","Female Islander","Giant Islander","Marine Commodore","Marine Rear Admiral","Fishman Raider","Fishman Captain","Forest Pirate","Mythological Pirate","Jungle Pirate","Musketeer Pirate","Reborn Skeleton","Living Zombie","Demonic Soul","Posessed Mummy", "Peanut Scout", "Peanut President", "Ice Cream Chef", "Ice Cream Commander", "Cookie Crafter", "Cake Guard", "Baking Staff", "Head Baker", "Cocoa Warrior", "Chocolate Bar Battler", "Sweet Thief", "Candy Rebel", "Candy Pirate", "Snow Demon","Isle Outlaw","Island Boy","Isle Champion"
-}
+elseif Third_Sea then
+  tableMon = {
+    "Pirate Millionaire", "Dragon Crew Warrior", "Dragon Crew Archer", "Female Islander", 
+    "Giant Islander", "Marine Commodore", "Marine Rear Admiral", "Fishman Raider", 
+    "Fishman Captain", "Forest Pirate", "Mythological Pirate", "Jungle Pirate", 
+    "Musketeer Pirate", "Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy", 
+    "Peanut Scout", "Peanut President", "Ice Cream Chef", "Ice Cream Commander", 
+    "Cookie Crafter", "Cake Guard", "Baking Staff", "Head Baker", "Cocoa Warrior", 
+    "Chocolate Bar Battler", "Sweet Thief", "Candy Rebel", "Candy Pirate", "Snow Demon", 
+    "Isle Outlaw", "Island Boy", "Isle Champion",
+    -- Add new monsters for update 24
+    "Frozen Warlord", "Snowstorm Demon", "Candy Sorcerer", "Cocoa Golem", "Gingerbread Giant", 
+    "Frost Guardian", "Sugar Spiker", "Frosted Outlaw", "Chocolate Beast", "Lollipop Knight"
+  }
 end
 
 --// Select Island
