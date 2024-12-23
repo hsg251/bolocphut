@@ -7,7 +7,7 @@ ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 -- Cài đặt thông báo
 TextLabel.Parent = ScreenGui
-TextLabel.Text = "sắp tới giáng sinh rồi🥵🥵"
+TextLabel.Text = "TextLable.Text = true; hi!"
 TextLabel.Size = UDim2.new(0.5, 0, 0.2, 0) -- Kích thước thông báo
 TextLabel.Position = UDim2.new(0.25, 0, 0.4, 0) -- Vị trí giữa màn hình
 TextLabel.BackgroundColor3 = Color3.new(0, 0, 0) -- Màu nền (đen)
@@ -17,7 +17,7 @@ TextLabel.Font = Enum.Font.SourceSansBold -- Font chữ
 TextLabel.TextScaled = true -- Tự động điều chỉnh kích thước chữ
 
 -- Tự động ẩn
-wait(10)
+wait(5)
 ScreenGui:Destroy()
 
 -- Tải và chạy mã từ URL sau khi hiển thị thông 
