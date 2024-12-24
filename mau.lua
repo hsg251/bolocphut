@@ -24,6 +24,7 @@ wait(2)
 
 -- Thay đổi thông báo thành "Đã tải xong"
 TextLabel.Text = "Thay chữ tiếng anh thành tv(nhiều cái chưa thay)"
+wait(2)
 
 --tiếp
 TextLabel.Text = "Nói tóm lại là update xog"
