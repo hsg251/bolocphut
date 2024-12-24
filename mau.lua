@@ -6,7 +6,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
     Title = "ThanhDan Hub",
-    SubTitle = "Bản update lần thứ 2",
+    SubTitle = "update cái lồn! mệt quá=(",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = false,
@@ -703,25 +703,11 @@ end
 
 --// Select Monster
 if First_Sea then
-tableMon = {
-  "Bandit","Monkey","Gorilla","Pirate","Brute","Desert Bandit","Desert Officer","Snow Bandit","Snowman","Chief Petty Officer","Sky Bandit","Dark Master","Prisoner", "Dangerous Prisoner","Toga Warrior","Gladiator","Military Soldier","Military Spy","Fishman Warrior","Fishman Commando","God's Guard","Shanda","Royal Squad","Royal Soldier","Galley Pirate","Galley Captain"
-} elseif Second_Sea then
-tableMon = {
-  "Raider","Mercenary","Swan Pirate","Factory Staff","Marine Lieutenant","Marine Captain","Zombie","Vampire","Snow Trooper","Winter Warrior","Lab Subordinate","Horned Warrior","Magma Ninja","Lava Pirate","Ship Deckhand","Ship Engineer","Ship Steward","Ship Officer","Arctic Warrior","Snow Lurker","Sea Soldier","Water Fighter"
+  tableMon = { "Bandit", "Monkey", "Gorilla", "Pirate", "Brute", "Desert Bandit", "Desert Officer", "Snow Bandit", "Snowman", "Chief Petty Officer", "Sky Bandit", "Dark Master", "Prisoner", "Dangerous Prisoner", "Toga Warrior", "Gladiator", "Military Soldier", "Military Spy", "Fishman Warrior", "Fishman Commando", "God's Guard", "Shanda", "Royal Squad", "Royal Soldier", "Galley Pirate", "Galley Captain" }
+elseif Second_Sea then
+  tableMon = { "Raider", "Mercenary", "Swan Pirate", "Factory Staff", "Marine Lieutenant", "Marine Captain", "Zombie", "Vampire", "Snow Trooper", "Winter Warrior", "Lab Subordinate", "Horned Warrior", "Magma Ninja", "Lava Pirate", "Ship Deckhand", "Ship Engineer", "Ship Steward", "Ship Officer", "Arctic Warrior", "Snow Lurker", "Sea Soldier", "Water Fighter" }
 elseif Third_Sea then
-  tableMon = {
-    "Pirate Millionaire", "Dragon Crew Warrior", "Dragon Crew Archer", "Female Islander", 
-    "Giant Islander", "Marine Commodore", "Marine Rear Admiral", "Fishman Raider", 
-    "Fishman Captain", "Forest Pirate", "Mythological Pirate", "Jungle Pirate", 
-    "Musketeer Pirate", "Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy", 
-    "Peanut Scout", "Peanut President", "Ice Cream Chef", "Ice Cream Commander", 
-    "Cookie Crafter", "Cake Guard", "Baking Staff", "Head Baker", "Cocoa Warrior", 
-    "Chocolate Bar Battler", "Sweet Thief", "Candy Rebel", "Candy Pirate", "Snow Demon", 
-    "Isle Outlaw", "Island Boy", "Isle Champion",
-    -- Add new monsters for update 24
-    "Frozen Warlord", "Snowstorm Demon", "Candy Sorcerer", "Cocoa Golem", "Gingerbread Giant", 
-    "Frost Guardian", "Sugar Spiker", "Frosted Outlaw", "Chocolate Beast", "Lollipop Knight"
-  }
+  tableMon = { "Pirate Millionaire", "Dragon Crew Warrior", "Dragon Crew Archer", "Female Islander", "Giant Islander", "Marine Commodore", "Marine Rear Admiral", "Fishman Raider", "Fishman Captain", "Forest Pirate", "Mythological Pirate", "Jungle Pirate", "Musketeer Pirate", "Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy", "Peanut Scout", "Peanut President", "Ice Cream Chef", "Ice Cream Commander", "Cookie Crafter", "Cake Guard", "Baking Staff", "Head Baker", "Cocoa Warrior", "Chocolate Bar Battler", "Sweet Thief", "Candy Rebel", "Candy Pirate", "Snow Demon", "Isle Outlaw", "Island Boy", "Isle Champion", "Frozen Warlord", "Snowstorm Demon", "Candy Sorcerer", "Cocoa Golem", "Gingerbread Giant", "Frost Guardian", "Sugar Spiker", "Frosted Outlaw", "Chocolate Beast", "Lollipop Knight" }
 end
 
 --// Select Island
