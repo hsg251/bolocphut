@@ -1,39 +1,3 @@
--- Tạo GUI chính
-local ScreenGui = Instance.new("ScreenGui")
-local TextLabel = Instance.new("TextLabel")
-
--- Đặt GUI vào CoreGui để hiển thị
-ScreenGui.Name = "ThanhDanHubMenu"
-ScreenGui.Parent = game:GetService("CoreGui")
-
--- Tạo thông báo "Script đang tải"
-TextLabel.Name = "Notification"
-TextLabel.Parent = ScreenGui
-TextLabel.BackgroundTransparency = 1
-TextLabel.Position = UDim2.new(0.5, -150, 0.05, 0)  -- Đưa thông báo lên gần trên cùng
-TextLabel.Size = UDim2.new(0, 300, 0, 50)
-TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "Đã cập nhật vị trí quái farm mới"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 30
-TextLabel.TextStrokeTransparency = 0.5
-TextLabel.TextScaled = true
-
--- Đợi 5 giây trước khi thay đổi thông báo
-wait(2)
-
--- Thay đổi thông báo thành "Đã tải xong"
-TextLabel.Text = "Thay chữ tiếng anh thành tv(nhiều cái chưa thay)"
-wait(2)
-
---tiếp
-TextLabel.Text = "Nói tóm lại là update xog"
-
--- Hiển thị thông báo "Đã tải xong" trong 2 giây rồi xóa
-wait(3)
-TextLabel:Destroy()
-
--- Bắt đầu script
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
