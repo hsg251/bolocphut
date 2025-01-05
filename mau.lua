@@ -1,24 +1,42 @@
--- Tạo GUI
-local ScreenGui = Instance.new("ScreenGui")
-local TextLabel = Instance.new("TextLabel")
+-- Tạo GUI hiển thị thời gian AFK
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
 
--- Gắn GUI
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local label = Instance.new("TextLabel")
+label.Size = UDim2.new(0, 150, 0, 30)  -- Kích thước nhỏ hơn
+label.Position = UDim2.new(1, -160, 0, 10)  -- Đặt ở góc trên bên phải
+label.BackgroundTransparency = 1
+label.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Màu chữ trắng
+label.TextSize = 14  -- Chữ nhỏ
+label.Text = "AFK Time: 00:00"
+label.TextXAlignment = Enum.TextXAlignment.Right  -- Căn phải
+label.Parent = screenGui
 
--- Cài đặt thông báo
-TextLabel.Parent = ScreenGui
-TextLabel.Text = "sắp tới tết roiiiiiii=))"
-TextLabel.Size = UDim2.new(0.5, 0, 0.2, 0) -- Kích thước thông báo
-TextLabel.Position = UDim2.new(0.25, 0, 0.4, 0) -- Vị trí giữa màn hình
-TextLabel.BackgroundColor3 = Color3.new(0, 0, 0) -- Màu nền (đen)
-TextLabel.BackgroundTransparency = 0.5 -- Độ trong suốt của nền
-TextLabel.TextColor3 = Color3.new(0, 1, 0) -- Màu chữ (xanh lá cây)
-TextLabel.Font = Enum.Font.SourceSansBold -- Font chữ
-TextLabel.TextScaled = true -- Tự động điều chỉnh kích thước chữ
+-- Lưu thời gian bắt đầu
+local startTime = tick()
 
--- Tự động ẩn
-wait(5)
-ScreenGui:Destroy()
+-- Cập nhật thời gian
+local function updateTime()
+    while true do
+        local elapsedTime = tick() - startTime
+        local minutes = math.floor(elapsedTime / 60)
+        local seconds = math.floor(elapsedTime % 60)
+        label.Text = string.format("AFK Time: %02d:%02d", minutes, seconds)
+        
+        wait(1)  -- Cập nhật mỗi giây
+    end
+end
 
--- Tải và chạy mã từ URL sau khi hiển thị thông
-loadstring(game:HttpGet("https://naokihub.vercel.app",true))()
+-- Bắt đầu cập nhật thời gian
+updateTime()
+
+-- Đoạn mã Loadstring gốc của bạn
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/GameList.lua"))()
+
+-- Xử lý thực thi cho từng PlaceID
+for PlaceID, Execute in pairs(Games) do
+    if PlaceID == game.PlaceId then
+        loadstring(game:HttpGet(Execute))()
+    end
+end
