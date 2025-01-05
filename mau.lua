@@ -8,7 +8,7 @@ label.Position = UDim2.new(1, -160, 0, 10)  -- Đặt ở góc trên bên phải
 label.BackgroundTransparency = 1
 label.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Màu chữ trắng
 label.TextSize = 14  -- Chữ nhỏ
-label.Text = "AFK Time: 00:00"
+label.Text = "Thời gian AFK: 00:00"
 label.TextXAlignment = Enum.TextXAlignment.Right  -- Căn phải
 label.Parent = screenGui
 
@@ -21,7 +21,7 @@ local function updateTime()
         local elapsedTime = tick() - startTime
         local minutes = math.floor(elapsedTime / 60)
         local seconds = math.floor(elapsedTime % 60)
-        label.Text = string.format("AFK Time: %02d:%02d", minutes, seconds)
+        label.Text = string.format("Thời gian AFK: %02d:%02d", minutes, seconds)
         
         wait(1)  -- Cập nhật mỗi giây
     end
