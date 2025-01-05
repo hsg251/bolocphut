@@ -1,4 +1,3 @@
--- Tạo GUI hiển thị thời gian AFK
 local player = game.Players.LocalPlayer
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
@@ -29,14 +28,22 @@ local function updateTime()
 end
 
 -- Bắt đầu cập nhật thời gian
-updateTime()
+spawn(updateTime)
 
--- Đoạn mã Loadstring gốc của bạn
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/GameList.lua"))()
+-- Đoạn mã Loadstring gốc của bạn, thực thi ngay lập tức khi script được chạy
+spawn(function()
+    local url = "https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/GameList.lua"
+    local scriptContent = game:HttpGet(url)
+    loadstring(scriptContent)()  -- Chạy mã từ URL
+end)
 
 -- Xử lý thực thi cho từng PlaceID
 for PlaceID, Execute in pairs(Games) do
     if PlaceID == game.PlaceId then
-        loadstring(game:HttpGet(Execute))()
+        spawn(function()
+            local url = Execute
+            local scriptContent = game:HttpGet(url)
+            loadstring(scriptContent)()  -- Chạy mã cho game cụ thể
+        end)
     end
 end
