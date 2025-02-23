@@ -6,7 +6,7 @@
 
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 
-getgenv().Key = "HShTFAttqyvHozNgBgWtmmJwyXxJGUhJ"
+getgenv().Key = "RTlrdLvRfoBeTJQaWokTdglrEiJEIhor"
 
 getgenv().SettingFarm ={
 
